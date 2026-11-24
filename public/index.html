@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>询盘交付工作台｜孟凡荣</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f2f5fb;color:#142038;font:16px/1.6 system-ui,sans-serif}main{width:min(1080px,calc(100% - 32px));margin:auto;padding:30px 0 60px}h1{font-size:clamp(2rem,6vw,3.8rem);line-height:1.1;margin:.35em 0}h2,h3,p{margin:0 0 9px}a{color:#1d43bd}header p{max-width:48em;color:#42516d}.grid{display:grid;grid-template-columns:1.1fr 1fr;gap:16px;margin:22px 0}section,article{padding:20px;background:white;border:1px solid #d9e0ef;border-radius:12px}article{margin:12px 0;padding:14px}textarea,input,select,button{font:inherit}textarea,input,select{width:100%;padding:8px;border:1px solid #8796b0;border-radius:6px}textarea{min-height:98px}label{display:block;margin-top:10px;font-weight:700}button{margin:8px 8px 0 0;padding:7px 12px;border:1px solid #2444c2;background:#2444c2;color:white;border-radius:6px;cursor:pointer}button.alt{background:#fff;color:#1939aa}button:disabled{opacity:.5;cursor:default}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#edf1fb;padding:10px;border-radius:6px}summary{cursor:pointer}#status{min-height:1.6em;margin-top:8px;color:#284678}.tag{font-size:.9em;color:#435779}#records p{overflow-wrap:anywhere}@media(max-width:750px){.grid{grid-template-columns:1fr}}
+</style>
+<main>
+<header>
+<a href="/#work" id="portfolio-link">返回作品集</a>
+<h1>外贸询盘交付工作台</h1>
+<p>把询盘变成待审草稿、补充问题或人工任务。从提交、分流、人工审核到导出记录，完整走一遍。</p>
+<p>请使用虚构数据。工作台只生成草稿和审核记录。</p>
+<p class="tag" id="mode"></p>
+</header>
+<div class="grid">
+<section>
+<h2>录入与验收</h2>
+<form id="intake">
+<label for="sample">载入样本</label><select id="sample"><option value="">选择一个样本</option></select>
+<label for="message">询盘正文</label><textarea id="message" name="message" maxlength="1000" required placeholder="例如：请报价 200 台 DN50 阀门"></textarea>
+<button type="submit">生成待审记录</button><button type="button" class="alt" id="regression">运行回归</button>
+</form>
+<p id="status" role="status"></p>
+<pre id="results" hidden></pre>
+</section>
+<section>
+<h2>人工审核与交接</h2>
+<p>核对分流理由和草稿，填写审核意见。主管可导出审阅记录，作为试点复盘材料。</p>
+<button type="button" class="alt" id="export">导出审核记录 JSON</button>
+<div id="records"></div>
+</section>
+</div>
+</main>
+<script type="module" src="./app.mjs"></script>
+</html>
